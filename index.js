@@ -179,17 +179,7 @@ const STORE = {
     currentQuestion: 0,
     score: 0,
 };
-//////RANDOM FUNCTIONS 
-
-//updates the question number
-function updateQuestionNumber() {
-    
-}
-
-//updates the score
-function updateScore() {
-    
-}
+//////RANDOM FUNCTION
 
 //check score against possible 10 and assign a rank based on if/then statements
 function assignRank() {
@@ -324,7 +314,7 @@ function handleStart() {
 function handleSubmitAnswer() {
     $('#submitButton').on('click', function(event){
         event.preventDefault();
-        if (STORE.questions[STORE.currentQuestion].answer === $(event.currentTarget).find('input[name="options"]').val()) {
+        if (STORE.questions[STORE.currentQuestion].answer === $(this).find('input[name="options"]').val()) {
             STORE.score++;
             STORE.currentView = "answerRight";
             console.log("right answer!");
@@ -357,8 +347,11 @@ function handleNextQuestion() {
 //handles click on try again button at end of quiz - can this also handle resetting the score and question number in the STORE? What else should this reset? CurrentView?
 function handleTryAgain() {
     $('#tryAgain').on('click', function(event){
+        STORE.currentQuestion = 0;
+        STORE.score = 0;
         STORE.currentView = "start";
         renderView();
+    })
 }
 
 
