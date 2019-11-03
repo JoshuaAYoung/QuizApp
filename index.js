@@ -59,17 +59,17 @@ const STORE = {
         },
         {
             //5
-            question: 'How many copies did "Harry Potter and the Deathly Hallows" sell the first day of its release in the U.S. and the U.K.?',
+            question: 'What does S.P.E.W. stand for?',
             options: [
-                "700", 
-                "10,000", 
-                "5 million", 
-                "11 million"
+                "Society For the Promotion of Elfish Welfare", 
+                "Society For the Protection of Elves and Wizards", 
+                "Support For People, Elves, and Wizards", 
+                "Sorority For the Protection of Elves and Wands"
             ],
-            answer: "11 million",
-            explanation: 'The final Harry Potter book sold an astonishing 11 million copies within 24 hours of its release on July 21, 2007.',
-            image: "./images/bookrelease.jpg",
-            imageAlt: "An image showing fans on the first day of book 7 release"
+            answer: "Society For the Promotion of Elfish Welfare",
+            explanation: 'The Society for the Promotion of Elfish Welfare (S.P.E.W.) was an organisation founded in 1994 by Hermione Granger in response to what she saw as gross injustice in the treatment of house-elves at the 1994 Quidditch World Cup.',
+            image: "./images/dobby.jpg",
+            imageAlt: "An artist rendition of Dobby the house elf"
         },
         {
             //6
@@ -81,8 +81,8 @@ const STORE = {
                 "The Tales of Arnold the Pygmy Puff"
             ],
             answer: "The Tales of Beedle the Bard",
-            explanation: 'In 2003, the OED added "muggle," which the dictionary defines as, "a person who possesses no magical powers ... a person who lacks a particular skill or skills, or who is regarded as inferior in some way."',
-            image: "./images/muggle.png",
+            explanation: 'In "The Deathly Hallows," the trio of protagonists first learn of the triangle symbol that represents the three Deathly Hallows in the book The "Tales of Beedle the Bard"',
+            image: "./images/deathlyhallows.jpg",
             imageAlt: "Artist rendition of the symbol for The Deathly Hallows"
         },
         {
@@ -105,10 +105,10 @@ const STORE = {
             options: [
                 "A Niffler, a cuddly creature that is a useful treasure detector", 
                 "Acromantula, a gigantic black spider raised by Hagrid from infancy", 
-                'A Hellhound, also known as a "three-headed dog"', 
+                'A Hellhound, also known as a three-headed dog', 
                 "A Basilisk, a giant snake associated with Slytherin House"
             ],
-            answer: 'A Hellhound, also known as a "three-headed dog"',
+            answer: 'A Hellhound, also known as a three-headed dog',
             explanation: "Fluffy is a huge, vicious three-headed dog who guards the sorcerer's stone. In exchange for a dragon egg, Hagrid tells a mysterious stranger he can get past Fluffy by playing a bit of music.",
             image: "./images/fluffy.png",
             imageAlt: "Comic art showing Fluffy, the Hellhound"
@@ -140,6 +140,76 @@ const STORE = {
             explanation: "Loathsome Aunt Marge speaks disparagingly about Harry's dead parents, and Harry gets so angry that he does uncontrolled magic, blowing Aunt Marge up like a balloon.",
             image: "./images/petunia.jpg",
             imageAlt: "Artist rendition of Petunia bloated, floating outside"
+        },        
+        {
+            //11
+            question: 'Who gave us the Marauder’s Map?',
+            options: [
+                "Moody, Wormtongue, Sappen, and Frongs", 
+                "Moony, Wormtail, Padfoot, and Prongs", 
+                "Molly, Wilfred, Peter, and Phongs", 
+                "Matchstick, Winston, Footfed, and Trongs"
+            ],
+            answer: "Moony, Wormtail, Padfoot, and Prongs",
+            explanation: "The Marauder's Map, a magical document that revealed all of Hogwarts, was created by Remus Lupin (Moony), Peter Pettigrew (Wormtail), Sirius Black (Padfoot), and James Potter (Prongs) while they were attending the school.",
+            image: "./images/maraudersmap.jpg",
+            imageAlt: "An image taken from the Marauder's Map"
+        },        
+        {
+            //12
+            question: 'What is Dumbledore’s full name?',
+            options: [
+                "Albus Wulfric Percival Brian Dumbledore", 
+                "Albus Percival Wulfric Brian Dumbledore", 
+                "Albus Percival Brian Wulfric Dumbledore", 
+                "Albus Brian Percival Wulfric Dumbledore"
+            ],
+            answer: "Albus Percival Wulfric Brian Dumbledore",
+            explanation: "Professor Albus Percival Wulfric Brian Dumbledore was an English half-blood wizard, who was the Defence Against the Dark Arts Professor, later the Transfiguration Professor, and later still Headmaster of Hogwarts School of Witchcraft and Wizardry.",
+            image: "./images/dumbledore.jpg",
+            imageAlt: "Artist rendition of Ablus Dumbledore and Fawkes the Phoenix"
+        },        
+        {
+            //13
+            question: 'What are the three cores Garrick Ollivander uses in his wand-making?',
+            options: [
+                "Phoenix feathers, dragon heartstring, and unicorn hair", 
+                "Phoenix feathers, dragon tooth, and centaur mane", 
+                "Dragon heartstring, unicorn horn, and centaur mane", 
+                "Phoenix beak, dragon heartstring, unicorn hair"
+            ],
+            answer: "Phoenix feathers, dragon heartstring, and unicorn hair",
+            explanation: "Although wand cores vary widely, certain wandmakers prefer to use certain materials; for example, Garrick Ollivander discovered and pioneered the use of phoenix feathers, dragon heartstrings, and unicorn tail hairs, whereas his father used lesser substances such as Kelpie hair and Kneazle whiskers",
+            image: "./images/ollivander.jpg",
+            imageAlt: "A drawing of Garrick Ollivander"
+        },        
+        {
+            //14
+            question: 'According to the Dursleys, how did Harry’s parents die?',
+            options: [
+                "In a plane crash", 
+                "In a train crash", 
+                "In a bus crash", 
+                "In a car crash"
+            ],
+            answer: "In a car crash",
+            explanation: "James and Lily Potter were murdered by Lord Voldemort when Harry was one years old. To avoid associating themselves with the wizarding world, the Dursleys claimed that Harry's parents died in a car crash.",
+            image: "./images/harryparents.jpg",
+            imageAlt: "Artist rendition of Harry Potter and his parents, Lily and James."
+        },        
+        {
+            //15
+            question: 'What is the LAST line of Harry Potter and the Deathly Hallows?',
+            options: [
+                '“Harry nodded."', 
+                '“The scar had not pained Harry for 19 years. All was well.”', 
+                '“Off to school with you, Albus.”', 
+                '“Life was good.”'
+            ],
+            answer: '“The scar had not pained Harry for 19 years. All was well.”',
+            explanation: "At the end of book 7, Harry Potter and the Deahtly Hallows, J.K. Rowling paints a picture of the wizarding world 19 years later as Harry Potter and friends watch their kids board the Hogwarts Express.",
+            image: "./images/pottergrown.jpg",
+            imageAlt: "Artist rendition of Harry, Ron, Hermoine and Ginny all grown with their children"
         }        
     ],
     userRank: [
@@ -151,7 +221,7 @@ const STORE = {
         },
         {
             rank: "Squib",
-            rankText: "Without reading any of the books, you probably watched the last two movies because the other ones didn't get a very good Tomatos Score, huh?",
+            rankText: "Without reading any of the books, you probably watched the last two movies because the other ones didn't get very good ratings, eh?",
             image: "./images/squib.jpg",
             imageAlt: "Argus Filch, the Hogwarts caretaker, and his cat Mrs. Norris."
         },
@@ -163,7 +233,7 @@ const STORE = {
         },
         {
             rank: "D.A Member",
-            rankText: "Killing it. If you want to go a little deeper, you should try adding the audiobooks to your arsenal. Both Jim Dale and Stephen Fry as narrators offer something to the series. Try both for 10 points to Gryffindor",
+            rankText: "Killing it. If you want to go a little deeper, you should try adding the audiobooks to your collection. I prefer Stephen Fry as a narrator, but Jim Dale also offers something to the series. Try both for 10 points to Gryffindor",
             image: "./images/da.jpg",
             imageAlt: "A drawing depicting Dumbledore's Army."
         },
@@ -179,32 +249,40 @@ const STORE = {
     currentQuestion: 0,
     score: 0,
 };
-//////RANDOM FUNCTION
+//////RANDOM FUNCTIONS
 
 //check score against possible 10 and assign a rank based on if/then statements
 function assignRank() {
-    if (STORE.score <= 2) {
+    if (STORE.score/STORE.questions.length <= .2) {
         STORE.rankIndex = 0;
         return STORE.rankIndex;
     }
-    else if (STORE.score <= 4) {
+    else if (STORE.score/STORE.questions.length <= .4) {
         STORE.rankIndex = 1;
         return STORE.rankIndex;
     }
-    else if (STORE.score <= 6) {
+    else if (STORE.score/STORE.questions.length <= .6) {
         STORE.rankIndex = 2;
         return STORE.rankIndex;
     }
-    else if (STORE.score <= 8) {
+    else if (STORE.score/STORE.questions.length <= .8) {
         STORE.rankIndex = 3;
         return STORE.rankIndex;
     }
-    else if (STORE.score == 10) {
+    else if (STORE.score/STORE.questions.length <= 1) {
         STORE.rankIndex = 4;
         return STORE.rankIndex;
     }
 }
 
+function generateButton() {
+    if (STORE.currentQuestion < STORE.questions.length) {
+        return "Next Question"
+    }
+    else {
+        return "Results"
+    }
+}
 
 //////TEMPLATE GENERATORS - generates html based on data
 
@@ -213,7 +291,7 @@ function generateStart() {
             <h1 class="welcomeText">Are you a real Harry Potter fan?</h1>
             <div class="startDiv">
                 <button type="button" id="startButton">
-                    Let's find out!
+                    Click here to find out!
                 </button>
             </div>
             <img src="./images/hogwarts.jpg" alt="Hogwarts School of Witchcraft and Wizardry" class="hogwartsImage" width=500px/>
@@ -222,19 +300,20 @@ function generateStart() {
 
 //generates html for a question
 function generateQuestion() {
+    let storeOption = STORE.questions[STORE.currentQuestion-1].options
     return `
     <section class="questionView">
         <form class="questionForm">
         <fieldset>
-            <legend class="questionText">${STORE.questions[STORE.currentQuestion].question}</legend>
-            <label class="questionOption" for="firstQuestion">${STORE.questions[STORE.currentQuestion].options[0]}</label>
-            <input type="radio" name="options" id="firstQuestion" value="${STORE.questions[STORE.currentQuestion].options[0]}" required>
-            <label class="questionOption" for="secondQuestion">${STORE.questions[STORE.currentQuestion].options[1]}</label>
-            <input type="radio" name="options" id="secondQuestion" value="${STORE.questions[STORE.currentQuestion].options[1]}" required>
-            <label class="questionOption" for="thirdQuestion">${STORE.questions[STORE.currentQuestion].options[2]}</label>
-            <input type="radio" name="options" id="thirdQuestion" value="${STORE.questions[STORE.currentQuestion].options[2]}" required>
-            <label class="questionOption" for="fourthQuestion">${STORE.questions[STORE.currentQuestion].options[3]}</label>
-            <input type="radio" name="options" id="fourthQuestion" value="${STORE.questions[STORE.currentQuestion].options[3]}" required>
+            <legend class="questionText">${STORE.questions[STORE.currentQuestion-1].question}</legend>
+            <label class="questionOption" for="firstQuestion">${storeOption[0]}</label>
+            <input type="radio" name="options" id="firstQuestion" value="${storeOption[0]}" required>
+            <label class="questionOption" for="secondQuestion">${storeOption[1]}</label>
+            <input type="radio" name="options" id="secondQuestion" value="${storeOption[1]}" required>
+            <label class="questionOption" for="thirdQuestion">${storeOption[2]}</label>
+            <input type="radio" name="options" id="thirdQuestion" value="${storeOption[2]}" required>
+            <label class="questionOption" for="fourthQuestion">${storeOption[3]}</label>
+            <input type="radio" name="options" id="fourthQuestion" value="${storeOption[3]}" required>
             <button type="submit" id="submitButton">Submit Answer</button>
         </fieldset>
         </form>
@@ -243,23 +322,25 @@ function generateQuestion() {
 
 //generates html for page when the user gets an answer right - iterates score using the updateScore function
 function generateRight() {
+    let questionArray = STORE.questions[STORE.currentQuestion-1];
     return `<section class="answerView">
         <h2 class="rightWrong">RIGHT!</h2>
-        <p class="rightAnswer">${STORE.questions[STORE.currentQuestion].answer} was the correct answer.</p> 
-        <p class="answerExplanation">${STORE.questions[STORE.currentQuestion].explanation}</p>
-        <button type="submit" id="nextButton">Next Question</button>
-        <img src="${STORE.questions[STORE.currentQuestion].image}" alt="${STORE.questions[STORE.currentQuestion].imageAlt}" class="answerImage${STORE.currentQuestion}">
+        <p class="rightAnswer">"<span class= "rightAnswer">${questionArray.answer}</span>" was the correct answer.</p> 
+        <p class="answerExplanation">${questionArray.explanation}</p>
+        <button type="submit" id="nextButton">${generateButton()}</button>
+        <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage${STORE.currentQuestion}" width= 300px>
     </section>`;
 }
 
 //generates html for page when the user gets an answer wrong 
 function generateWrong() {
+    let questionArray = STORE.questions[STORE.currentQuestion-1];
     return `<section class="answerView">
         <h2 class="rightWrong">WRONG.</h2>
-        <p class="rightAnswer">${STORE.questions[STORE.currentQuestion].answer} was the correct answer.</p> 
-        <p class="answerExplanation">${STORE.questions[STORE.currentQuestion].explanation}</p>
-        <button type="submit" id="nextButton">Next Question</button>
-        <img src="${STORE.questions[STORE.currentQuestion].image}" alt="${STORE.questions[STORE.currentQuestion].imageAlt}" class="answerImage${STORE.currentQuestion}">
+        <p class="rightAnswer">"<span class= "rightAnswer">${questionArray.answer}</span>" was the correct answer.</p> 
+        <p class="answerExplanation">${questionArray.explanation}</p>
+        <button type="submit" id="nextButton">${generateButton()}</button>
+        <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage${STORE.currentQuestion}" width= 300px>
     </section>`;
 }
 
@@ -268,20 +349,25 @@ function generateResults() {
     return `<section class="finalView">
         <h2 class="results">RESULTS:</h2>
         <p class="resultsText">
-            You got <span class="scoreNumber">${STORE.score}</span> out of 10 right.
+            You got <span class="scoreNumber">${STORE.score}</span> out of ${STORE.questions.length} right.
             <span class="userRank">Rank: ${STORE.userRank[assignRank()].rank}</span>
-            <span class="rankText">Rank: ${STORE.userRank[assignRank()].rankText}</span>
+            <span class="rankText">${STORE.userRank[assignRank()].rankText}</span>
         </p>
         <button type="submit" id="tryAgain">Try Again</button>
-        <img src="${STORE.userRank[assignRank()].image}" alt="${STORE.userRank[assignRank()].imageAlt}" class="userRatingImage">
+        <img src="${STORE.userRank[assignRank()].image}" alt="${STORE.userRank[assignRank()].imageAlt}" class="userRatingImage${STORE.rankIndex}" width= 300px>
     </section>`
 }
 
+function generateStats() {
+    $(".questionNumber").html(STORE.currentQuestion + "/" + STORE.questions.length);
+    $(".scoreNumber").html(STORE.score);
+}
 
 //////RENDERING FUNCTIONS - Reads the STORE, calls generators, then adds HTML to DOM is --- store.currentView === start --- RENDER ALL OF THE PAGES DEPENDING ON THE currentView status
 
 //reads store data, calls generateQuestion function and adds question html to dom - only do one thing, read data from store and take over the main div of the app
 function renderView() {
+    generateStats();
     if (STORE.currentView === "start") {
         $("main").html(generateStart());
     }
@@ -292,7 +378,7 @@ function renderView() {
         $("main").html(generateRight());
     }
     else if (STORE.currentView === "answerWrong") {
-        $("main").html(generatWrong());
+        $("main").html(generateWrong());
     }
     else {
         $("main").html(generateResults());
@@ -305,6 +391,7 @@ function renderView() {
 function handleStart() {
     $('#startButton').on('click', function(event){
         STORE.currentView = "question";
+        STORE.currentQuestion++;
         renderView();
         handleSubmitAnswer();
     })
@@ -315,17 +402,14 @@ function handleStart() {
 function handleSubmitAnswer() {
     $('.questionForm').on('submit', function(event){
         event.preventDefault();
-        if (STORE.questions[STORE.currentQuestion].answer === $(this).find('input[name="options"]:checked').val()) {
+        if (STORE.questions[STORE.currentQuestion-1].answer == $(this).find('input[name="options"]:checked').val()) {
             STORE.score++;
             STORE.currentView = "answerRight";
-            console.log("right answer!");
             renderView();
             handleNextQuestion();
         }
         else {
-            STORE.currentQuestion++;
             STORE.currentView = "answerWrong";
-            console.log("wrong answer!");
             renderView();
             handleNextQuestion();
         }
@@ -333,10 +417,10 @@ function handleSubmitAnswer() {
     })
 }
 
-//handles click on next question - iterates questionNumber in the STORE -- also checks if the STORE.current
+//handles click on next question - checks if you're on the last question, if not iterates questionNumber in the STORE and rerenders. Otherwise, shows "results" view
 function handleNextQuestion() {
     $('#nextButton').on('click', function(event){
-        if (STORE.currentQuestion <= STORE.questions.length) {
+        if (STORE.currentQuestion < STORE.questions.length) {
             STORE.currentView = "question";
             STORE.currentQuestion++;
             renderView();
