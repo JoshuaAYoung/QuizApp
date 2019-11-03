@@ -224,17 +224,17 @@ function generateStart() {
 function generateQuestion() {
     return `
     <section class="questionView">
-        <form>
+        <form class="questionForm">
         <fieldset>
             <legend class="questionText">${STORE.questions[STORE.currentQuestion].question}</legend>
             <label class="questionOption" for="firstQuestion">${STORE.questions[STORE.currentQuestion].options[0]}</label>
             <input type="radio" name="options" id="firstQuestion" value="${STORE.questions[STORE.currentQuestion].options[0]}" required>
             <label class="questionOption" for="secondQuestion">${STORE.questions[STORE.currentQuestion].options[1]}</label>
-            <input type="radio" name="options" id="firstQuestion" value="${STORE.questions[STORE.currentQuestion].options[1]}" required>
+            <input type="radio" name="options" id="secondQuestion" value="${STORE.questions[STORE.currentQuestion].options[1]}" required>
             <label class="questionOption" for="thirdQuestion">${STORE.questions[STORE.currentQuestion].options[2]}</label>
-            <input type="radio" name="options" id="firstQuestion" value="${STORE.questions[STORE.currentQuestion].options[2]}" required>
+            <input type="radio" name="options" id="thirdQuestion" value="${STORE.questions[STORE.currentQuestion].options[2]}" required>
             <label class="questionOption" for="fourthQuestion">${STORE.questions[STORE.currentQuestion].options[3]}</label>
-            <input type="radio" name="options" id="firstQuestion" value="${STORE.questions[STORE.currentQuestion].options[3]}" required>
+            <input type="radio" name="options" id="fourthQuestion" value="${STORE.questions[STORE.currentQuestion].options[3]}" required>
             <button type="submit" id="submitButton">Submit Answer</button>
         </fieldset>
         </form>
@@ -306,25 +306,28 @@ function handleStart() {
     $('#startButton').on('click', function(event){
         STORE.currentView = "question";
         renderView();
+        handleSubmitAnswer();
     })
     
 }
 
 //handles click on submit answer - checks answer against the correct answer - sends you either to right answer view or wrong answer view
 function handleSubmitAnswer() {
-    $('#submitButton').on('click', function(event){
+    $('.questionForm').on('submit', function(event){
         event.preventDefault();
-        if (STORE.questions[STORE.currentQuestion].answer === $(this).find('input[name="options"]').val()) {
+        if (STORE.questions[STORE.currentQuestion].answer === $(this).find('input[name="options"]:checked').val()) {
             STORE.score++;
             STORE.currentView = "answerRight";
             console.log("right answer!");
             renderView();
+            handleNextQuestion();
         }
         else {
             STORE.currentQuestion++;
             STORE.currentView = "answerWrong";
             console.log("wrong answer!");
             renderView();
+            handleNextQuestion();
         }
 
     })
@@ -334,12 +337,15 @@ function handleSubmitAnswer() {
 function handleNextQuestion() {
     $('#nextButton').on('click', function(event){
         if (STORE.currentQuestion <= STORE.questions.length) {
+            STORE.currentView = "question";
             STORE.currentQuestion++;
             renderView();
+            handleSubmitAnswer();
         }
         else {
             STORE.currentView = "results";
             renderView();
+            handleTryAgain();
         }
     })
 }
@@ -351,6 +357,7 @@ function handleTryAgain() {
         STORE.score = 0;
         STORE.currentView = "start";
         renderView();
+        handleStart();
     })
 }
 
@@ -359,8 +366,5 @@ function handleTryAgain() {
 $(function(){
     renderView();
     handleStart();
-    handleSubmitAnswer();
-    handleNextQuestion();
-    handleTryAgain();
 })
 
