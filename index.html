@@ -6,36 +6,33 @@
   <title>Harry Potter Quiz</title>
   <meta name="description" type="A quiz app to test your Harry Potter prowess.">
   <link rel="shortcut icon" href="#">
-  <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <header role="banner" class="header">
-        <section>
+        <div class="bannerImage">
             <a href="index.html">
-                <img src="./images/harry.png" alt="Harry Potter" class="potterBanner" width= 300px/>
+                <div class="emptyHomepageLink"></div>
             </a>
+            <img src="./images/harry.png" alt="Harry Potter" class="potterBanner" width= 400px/>
+        </div>
+        <section class="stats">
+            <p class="questionHeader">
+                Question: <span class="questionNumber">0/15</span>
+            </p>
+            <p class="questionHeader">
+                Score: <span class="scoreNumber">0/15</span>
+            </p>
         </section>
-        <section>
-            <div class="progressAndScore"></div>
-                <p class="questionHead">
-                    Question: <span class="questionNumber">0/15</span>
-                </p>
-                <p class="questionHead">
-                    Score: <span class="scoreNumber">0</span>
-                </p>
-            </div>
     </header>
 
     <main role="main" class="container">
     </main>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

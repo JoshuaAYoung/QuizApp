@@ -87,7 +87,7 @@ const STORE = {
         },
         {
             //7
-            question: "In the first line of the first book of the Harry Potter series, we learn that Harry's aunt and uncle, the Dursleys, were proud to say that they were____________:",
+            question: "In the first line of the first book of the Harry Potter series, we learn that Harry's aunt and uncle, the Dursleys, were proud to say that they were:",
             options: [
                 "...perfectly normal, thank you very much.", 
                 "...the last people you'd expect to be involved in anything strange or mysterious.", 
@@ -129,7 +129,7 @@ const STORE = {
         },
         {
             //10
-            question: 'In the third book, "Harry Potter and the Prisoner of Azkaban," Harry runs away from his aunt and uncle\'s home after accidentally ______________.',
+            question: 'In the third book, "Harry Potter and the Prisoner of Azkaban," Harry runs away from his aunt and uncle\'s home after accidentally:',
             options: [
                 "Casting a Patronus charm", 
                 "Blowing his Aunt Marge up like a balloon", 
@@ -201,12 +201,12 @@ const STORE = {
             //15
             question: 'What is the LAST line of Harry Potter and the Deathly Hallows?',
             options: [
-                '“Harry nodded."', 
-                '“The scar had not pained Harry for 19 years. All was well.”', 
-                '“Off to school with you, Albus.”', 
-                '“Life was good.”'
+                'Harry nodded.', 
+                'The scar had not pained Harry for 19 years. All was well.', 
+                'Off to school with you, Albus.', 
+                'Life was good.'
             ],
-            answer: '“The scar had not pained Harry for 19 years. All was well.”',
+            answer: 'The scar had not pained Harry for 19 years. All was well.',
             explanation: "At the end of book 7, Harry Potter and the Deahtly Hallows, J.K. Rowling paints a picture of the wizarding world 19 years later as Harry Potter and friends watch their kids board the Hogwarts Express.",
             image: "./images/pottergrown.jpg",
             imageAlt: "Artist rendition of Harry, Ron, Hermoine and Ginny all grown with their children"
@@ -221,7 +221,7 @@ const STORE = {
         },
         {
             rank: "Squib",
-            rankText: "Without reading any of the books, you probably watched the last two movies because the other ones didn't get very good ratings, eh?",
+            rankText: "Without reading any of the books, you probably watched the last two movies because the other ones didn't get very good ratings, right?",
             image: "./images/squib.jpg",
             imageAlt: "Argus Filch, the Hogwarts caretaker, and his cat Mrs. Norris."
         },
@@ -277,10 +277,10 @@ function assignRank() {
 
 function generateButton() {
     if (STORE.currentQuestion < STORE.questions.length) {
-        return "Next Question"
+        return "next question"
     }
     else {
-        return "Results"
+        return "results"
     }
 }
 
@@ -288,13 +288,13 @@ function generateButton() {
 
 function generateStart() {
     return `<section class=welcomeView>
-            <h1 class="welcomeText">Are you a real Harry Potter fan?</h1>
+            <h1 class="welcomeText">Are you a Real Harry Potter fan?</h1>
+            <h2 class="startInstructions">click the start button to find out</h2>
             <div class="startDiv">
-                <button type="button" id="startButton">
-                    Click here to find out!
+                <button type="button" id="startButton" role: "button">
+                    start
                 </button>
             </div>
-            <img src="./images/hogwarts.jpg" alt="Hogwarts School of Witchcraft and Wizardry" class="hogwartsImage" width=500px/>
         </section>`;
 }
 
@@ -304,18 +304,25 @@ function generateQuestion() {
     return `
     <section class="questionView">
         <form class="questionForm">
-        <fieldset>
-            <legend class="questionText">${STORE.questions[STORE.currentQuestion-1].question}</legend>
-            <label class="questionOption" for="firstQuestion">${storeOption[0]}</label>
-            <input type="radio" name="options" id="firstQuestion" value="${storeOption[0]}" required>
-            <label class="questionOption" for="secondQuestion">${storeOption[1]}</label>
-            <input type="radio" name="options" id="secondQuestion" value="${storeOption[1]}" required>
-            <label class="questionOption" for="thirdQuestion">${storeOption[2]}</label>
-            <input type="radio" name="options" id="thirdQuestion" value="${storeOption[2]}" required>
-            <label class="questionOption" for="fourthQuestion">${storeOption[3]}</label>
-            <input type="radio" name="options" id="fourthQuestion" value="${storeOption[3]}" required>
-            <button type="submit" id="submitButton">Submit Answer</button>
-        </fieldset>
+            <fieldset>
+                <legend class="questionText">${STORE.questions[STORE.currentQuestion-1].question}</legend>
+                <p class="firstQuestion">
+                    <input type="radio" name="options" id="firstQuestion" value="${storeOption[0]}" required>
+                    <label class="questionOption" for="firstQuestion">${storeOption[0]}</label>
+                </p>
+                <p>
+                    <input type="radio" name="options" id="secondQuestion" value="${storeOption[1]}" required>
+                    <label class="questionOption" for="secondQuestion">${storeOption[1]}</label>
+                </p>
+                <p>
+                    <input type="radio" name="options" id="thirdQuestion" value="${storeOption[2]}" required>   
+                    <label class="questionOption" for="thirdQuestion">${storeOption[2]}</label>
+                <p>
+                    <input type="radio" name="options" id="fourthQuestion" value="${storeOption[3]}" required>   
+                    <label class="questionOption" for="fourthQuestion">${storeOption[3]}</label>
+                </p>
+                <button type="submit" id="submitButton" role: "submit">submit</button>
+            </fieldset>
         </form>
     </section>`;
 }
@@ -324,11 +331,12 @@ function generateQuestion() {
 function generateRight() {
     let questionArray = STORE.questions[STORE.currentQuestion-1];
     return `<section class="answerView">
-        <h2 class="rightWrong">RIGHT!</h2>
-        <p class="rightAnswer">"<span class= "rightAnswer">${questionArray.answer}</span>" was the correct answer.</p> 
+        <h2 class="rightWrong">Right!</h2>
+        <p class="theAnswer">"${questionArray.answer}"</p> 
+        <p class="theAnswerText">was the correct answer.</p> 
         <p class="answerExplanation">${questionArray.explanation}</p>
-        <button type="submit" id="nextButton">${generateButton()}</button>
-        <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage${STORE.currentQuestion}" width= 300px>
+        <button type="submit" id="nextButton" role: "button">${generateButton()}</button>
+        <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage">
     </section>`;
 }
 
@@ -336,31 +344,40 @@ function generateRight() {
 function generateWrong() {
     let questionArray = STORE.questions[STORE.currentQuestion-1];
     return `<section class="answerView">
-        <h2 class="rightWrong">WRONG.</h2>
-        <p class="rightAnswer">"<span class= "rightAnswer">${questionArray.answer}</span>" was the correct answer.</p> 
+        <h2 class="rightWrong">Wrong.</h2>
+        <p class="theAnswer">"${questionArray.answer}"</p> 
+        <p class="theAnswerText">was the correct answer.</p> 
         <p class="answerExplanation">${questionArray.explanation}</p>
-        <button type="submit" id="nextButton">${generateButton()}</button>
-        <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage${STORE.currentQuestion}" width= 300px>
+        <p>
+            <button type="submit" id="nextButton" role: "button">${generateButton()}</button>
+        </p>
+        <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage">
     </section>`;
 }
 
 //generates html for the results page (last page)
 function generateResults() {
     return `<section class="finalView">
-        <h2 class="results">RESULTS:</h2>
+        <h2 class="results">RESULTS</h2>
         <p class="resultsText">
-            You got <span class="scoreNumber">${STORE.score}</span> out of ${STORE.questions.length} right.
-            <span class="userRank">Rank: ${STORE.userRank[assignRank()].rank}</span>
-            <span class="rankText">${STORE.userRank[assignRank()].rankText}</span>
+            You got  <span class="scoreResults">${STORE.score}</span>  out of  <span class="scoreResults">${STORE.questions.length}</span>  right.
         </p>
-        <button type="submit" id="tryAgain">Try Again</button>
-        <img src="${STORE.userRank[assignRank()].image}" alt="${STORE.userRank[assignRank()].imageAlt}" class="userRatingImage${STORE.rankIndex}" width= 300px>
+        <p class="rankText">
+            Current Rank: <span class="userRank">"${STORE.userRank[assignRank()].rank}"</span>
+        </p>
+        <p class="rankExplanation">
+            ${STORE.userRank[assignRank()].rankText}
+        </p>
+        <p>
+        <button type="submit" id="tryAgain" role: "button">Try Again</button>
+        </p>
+        <img src="${STORE.userRank[assignRank()].image}" alt="${STORE.userRank[assignRank()].imageAlt}" class="userRatingImage">
     </section>`
 }
 
 function generateStats() {
     $(".questionNumber").html(STORE.currentQuestion + "/" + STORE.questions.length);
-    $(".scoreNumber").html(STORE.score);
+    $(".scoreNumber").html(STORE.score + "/" + STORE.questions.length);
 }
 
 //////RENDERING FUNCTIONS - Reads the STORE, calls generators, then adds HTML to DOM is --- store.currentView === start --- RENDER ALL OF THE PAGES DEPENDING ON THE currentView status
