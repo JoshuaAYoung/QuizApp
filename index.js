@@ -239,7 +239,7 @@ const STORE = {
         },
         {
             rank: "Auror",
-            rankText: "Perfect Score! Let's just say I wouldn't get into a duel with you.",
+            rankText: "Riddikulus! Albus would be so proud. Also, remind me never to challenge you to a duel.",
             image: "./images/auror.jpg",
             imageAlt: "An image of Harry Potter grown."
         }
