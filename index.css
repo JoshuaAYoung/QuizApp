@@ -20,7 +20,7 @@
     width: 280px;
     border-radius: 12px;
     display: block;
-    margin: 30px auto 50px;
+    margin: 0 auto 50px;
 }
 
 .potterBanner {
@@ -31,7 +31,6 @@
     font-size: 23px;
     color: #FF3333;
     font-weight: bold;
-    /* display: inline-block; */
 }
 
 .stats {
@@ -74,6 +73,7 @@ button[type="button"], button[type="submit"] {
     font-size: 22px;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
 button[type="button"]:hover, button[type="submit"]:hover { 
@@ -96,10 +96,6 @@ fieldset {
     text-align: center;
     border: none;
     margin: 10px 35px 0;
-}
-
-input[type="radio"] {
-
 }
 
 .questionOption {
@@ -138,6 +134,7 @@ button[id="submitButton"] {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 14px;
     margin: 20px 35px 20px;
+    line-height: 20px;
 }
 
 .resultsText, .rankText {
@@ -173,11 +170,16 @@ button[id="submitButton"] {
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 575px) {
     .answerExplanation, .rankExplanation {
-        width: 800px;
+        width: 500px;
         margin-left: auto;
         margin-right: auto;
     }
+
+    fieldset {
+        margin: 10px auto 0;
+        width: 500px;
+    }
 }
- 
+

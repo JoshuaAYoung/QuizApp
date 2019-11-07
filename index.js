@@ -243,40 +243,45 @@ const STORE = {
             image: "./images/auror.jpg",
             imageAlt: "An image of Harry Potter grown."
         }
-    ],
+    ]
+};
+
+let APP = {
     rankIndex: 0,
     currentView: "start",
     currentQuestion: 0,
-    score: 0,
+    score: 0
 };
+
+
 //////RANDOM FUNCTIONS
 
 //check score against possible 10 and assign a rank based on if/then statements
 function assignRank() {
-    if (STORE.score/STORE.questions.length <= .2) {
-        STORE.rankIndex = 0;
-        return STORE.rankIndex;
+    if (APP.score/STORE.questions.length <= .2) {
+        APP.rankIndex = 0;
+        return APP.rankIndex;
     }
-    else if (STORE.score/STORE.questions.length <= .4) {
-        STORE.rankIndex = 1;
-        return STORE.rankIndex;
+    else if (APP.score/STORE.questions.length <= .4) {
+        APP.rankIndex = 1;
+        return APP.rankIndex;
     }
-    else if (STORE.score/STORE.questions.length <= .6) {
-        STORE.rankIndex = 2;
-        return STORE.rankIndex;
+    else if (APP.score/STORE.questions.length <= .6) {
+        APP.rankIndex = 2;
+        return APP.rankIndex;
     }
-    else if (STORE.score/STORE.questions.length <= .8) {
-        STORE.rankIndex = 3;
-        return STORE.rankIndex;
+    else if (APP.score/STORE.questions.length <= .8) {
+        APP.rankIndex = 3;
+        return APP.rankIndex;
     }
-    else if (STORE.score/STORE.questions.length <= 1) {
-        STORE.rankIndex = 4;
-        return STORE.rankIndex;
+    else if (APP.score/STORE.questions.length <= 1) {
+        APP.rankIndex = 4;
+        return APP.rankIndex;
     }
 }
 
 function generateButton() {
-    if (STORE.currentQuestion < STORE.questions.length) {
+    if (APP.currentQuestion < STORE.questions.length) {
         return "next question"
     }
     else {
@@ -287,11 +292,11 @@ function generateButton() {
 //////TEMPLATE GENERATORS - generates html based on data
 
 function generateStart() {
-    return `<section class=welcomeView>
+    return `<section id="welcomeView" aria-live="polite">
             <h1 class="welcomeText">Are you a Real Harry Potter fan?</h1>
             <h2 class="startInstructions">click the start button to find out</h2>
             <div class="startDiv">
-                <button type="button" id="startButton" role: "button">
+                <button type="button" id="startButton" role="button" aria-controls="welcomeView">
                     start
                 </button>
             </div>
@@ -300,28 +305,29 @@ function generateStart() {
 
 //generates html for a question
 function generateQuestion() {
-    let storeOption = STORE.questions[STORE.currentQuestion-1].options
+    let storeOption = STORE.questions[APP.currentQuestion-1].options
     return `
-    <section class="questionView">
+    <section class="questionView" id="submitQuestion" aria-live="polite">
         <form class="questionForm">
             <fieldset>
-                <legend class="questionText">${STORE.questions[STORE.currentQuestion-1].question}</legend>
-                <p class="firstQuestion">
-                    <input type="radio" name="options" id="firstQuestion" value="${storeOption[0]}" required>
-                    <label class="questionOption" for="firstQuestion">${storeOption[0]}</label>
-                </p>
-                <p>
-                    <input type="radio" name="options" id="secondQuestion" value="${storeOption[1]}" required>
-                    <label class="questionOption" for="secondQuestion">${storeOption[1]}</label>
-                </p>
-                <p>
-                    <input type="radio" name="options" id="thirdQuestion" value="${storeOption[2]}" required>   
-                    <label class="questionOption" for="thirdQuestion">${storeOption[2]}</label>
-                <p>
-                    <input type="radio" name="options" id="fourthQuestion" value="${storeOption[3]}" required>   
-                    <label class="questionOption" for="fourthQuestion">${storeOption[3]}</label>
-                </p>
-                <button type="submit" id="submitButton" role: "submit">submit</button>
+                    <legend class="questionText">${STORE.questions[APP.currentQuestion-1].question}</legend>
+                    <p>
+                        <input type="radio" name="options" id="firstQuestion" value="${storeOption[0]}" required>
+                        <label class="questionOption" for="firstQuestion">${storeOption[0]}</label>
+                    </p>
+                    <p>
+                        <input type="radio" name="options" id="secondQuestion" value="${storeOption[1]}" required>
+                        <label class="questionOption" for="secondQuestion">${storeOption[1]}</label>
+                    </p>
+                    <p>
+                        <input type="radio" name="options" id="thirdQuestion" value="${storeOption[2]}" required>   
+                        <label class="questionOption" for="thirdQuestion">${storeOption[2]}</label>
+                    </p>
+                    <p>
+                        <input type="radio" name="options" id="fourthQuestion" value="${storeOption[3]}" required>   
+                        <label class="questionOption" for="fourthQuestion">${storeOption[3]}</label>
+                    </p>
+                <button type="submit" id="submitButton" role="submit" aria-controls="submitQuestion">submit</button>
             </fieldset>
         </form>
     </section>`;
@@ -329,38 +335,36 @@ function generateQuestion() {
 
 //generates html for page when the user gets an answer right - iterates score using the updateScore function
 function generateRight() {
-    let questionArray = STORE.questions[STORE.currentQuestion-1];
-    return `<section class="answerView">
+    let questionArray = STORE.questions[APP.currentQuestion-1];
+    return `<section class="answerView" id="checkAnswer" aria-live="polite">
         <h2 class="rightWrong">Right!</h2>
         <p class="theAnswer">"${questionArray.answer}"</p> 
         <p class="theAnswerText">was the correct answer.</p> 
         <p class="answerExplanation">${questionArray.explanation}</p>
-        <button type="submit" id="nextButton" role: "button">${generateButton()}</button>
+        <button type="submit" id="nextButton" role="button" aria-controls="checkAnswer">${generateButton()}</button>
         <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage">
     </section>`;
 }
 
 //generates html for page when the user gets an answer wrong 
 function generateWrong() {
-    let questionArray = STORE.questions[STORE.currentQuestion-1];
-    return `<section class="answerView">
+    let questionArray = STORE.questions[APP.currentQuestion-1];
+    return `<section class="answerView" id="checkAnswer" aria-live="polite">
         <h2 class="rightWrong">Wrong.</h2>
         <p class="theAnswer">"${questionArray.answer}"</p> 
         <p class="theAnswerText">was the correct answer.</p> 
         <p class="answerExplanation">${questionArray.explanation}</p>
-        <p>
-            <button type="submit" id="nextButton" role: "button">${generateButton()}</button>
-        </p>
+        <button type="submit" id="nextButton" role="button" aria-controls="checkAnswer">${generateButton()}</button>
         <img src="${questionArray.image}" alt="${questionArray.imageAlt}" class="answerImage">
     </section>`;
 }
 
 //generates html for the results page (last page)
 function generateResults() {
-    return `<section class="finalView">
+    return `<section class="finalView" id="startOver" aria-live="polite">
         <h2 class="results">RESULTS</h2>
         <p class="resultsText">
-            You got  <span class="scoreResults">${STORE.score}</span>  out of  <span class="scoreResults">${STORE.questions.length}</span>  right.
+            You got  <span class="scoreResults">${APP.score}</span>  out of  <span class="scoreResults">${STORE.questions.length}</span>  right.
         </p>
         <p class="rankText">
             Current Rank: <span class="userRank">"${STORE.userRank[assignRank()].rank}"</span>
@@ -368,33 +372,31 @@ function generateResults() {
         <p class="rankExplanation">
             ${STORE.userRank[assignRank()].rankText}
         </p>
-        <p>
-        <button type="submit" id="tryAgain" role: "button">Try Again</button>
-        </p>
+        <button type="submit" id="tryAgain" role= "button" aria-controls="startOver">Try Again</button>
         <img src="${STORE.userRank[assignRank()].image}" alt="${STORE.userRank[assignRank()].imageAlt}" class="userRatingImage">
     </section>`
 }
 
 function generateStats() {
-    $(".questionNumber").html(STORE.currentQuestion + "/" + STORE.questions.length);
-    $(".scoreNumber").html(STORE.score + "/" + STORE.questions.length);
+    $(".questionNumber").html(APP.currentQuestion + "/" + STORE.questions.length);
+    $(".scoreNumber").html(APP.score + "/" + STORE.questions.length);
 }
 
-//////RENDERING FUNCTIONS - Reads the STORE, calls generators, then adds HTML to DOM is --- store.currentView === start --- RENDER ALL OF THE PAGES DEPENDING ON THE currentView status
+//////RENDERING FUNCTIONS - Reads the STORE, calls generators, then adds HTML to DOM is --- APP.currentView === start --- RENDER ALL OF THE PAGES DEPENDING ON THE currentView status
 
 //reads store data, calls generateQuestion function and adds question html to dom - only do one thing, read data from store and take over the main div of the app
 function renderView() {
     generateStats();
-    if (STORE.currentView === "start") {
+    if (APP.currentView === "start") {
         $("main").html(generateStart());
     }
-    else if (STORE.currentView === "question") {
+    else if (APP.currentView === "question") {
         $("main").html(generateQuestion());
     }
-    else if (STORE.currentView === "answerRight") {
+    else if (APP.currentView === "answerRight") {
         $("main").html(generateRight());
     }
-    else if (STORE.currentView === "answerWrong") {
+    else if (APP.currentView === "answerWrong") {
         $("main").html(generateWrong());
     }
     else {
@@ -407,8 +409,8 @@ function renderView() {
 //goes to the first question view when you click on the start button
 function handleStart() {
     $('#startButton').on('click', function(event){
-        STORE.currentView = "question";
-        STORE.currentQuestion++;
+        APP.currentView = "question";
+        APP.currentQuestion++;
         renderView();
         handleSubmitAnswer();
     })
@@ -419,14 +421,14 @@ function handleStart() {
 function handleSubmitAnswer() {
     $('.questionForm').on('submit', function(event){
         event.preventDefault();
-        if (STORE.questions[STORE.currentQuestion-1].answer == $(this).find('input[name="options"]:checked').val()) {
-            STORE.score++;
-            STORE.currentView = "answerRight";
+        if (STORE.questions[APP.currentQuestion-1].answer == $(this).find('input[name="options"]:checked').val()) {
+            APP.score++;
+            APP.currentView = "answerRight";
             renderView();
             handleNextQuestion();
         }
         else {
-            STORE.currentView = "answerWrong";
+            APP.currentView = "answerWrong";
             renderView();
             handleNextQuestion();
         }
@@ -437,14 +439,14 @@ function handleSubmitAnswer() {
 //handles click on next question - checks if you're on the last question, if not iterates questionNumber in the STORE and rerenders. Otherwise, shows "results" view
 function handleNextQuestion() {
     $('#nextButton').on('click', function(event){
-        if (STORE.currentQuestion < STORE.questions.length) {
-            STORE.currentView = "question";
-            STORE.currentQuestion++;
+        if (APP.currentQuestion < STORE.questions.length) {
+            APP.currentView = "question";
+            APP.currentQuestion++;
             renderView();
             handleSubmitAnswer();
         }
         else {
-            STORE.currentView = "results";
+            APP.currentView = "results";
             renderView();
             handleTryAgain();
         }
@@ -454,9 +456,9 @@ function handleNextQuestion() {
 //handles click on try again button at end of quiz - can this also handle resetting the score and question number in the STORE? What else should this reset? CurrentView?
 function handleTryAgain() {
     $('#tryAgain').on('click', function(event){
-        STORE.currentQuestion = 0;
-        STORE.score = 0;
-        STORE.currentView = "start";
+        APP.currentQuestion = 0;
+        APP.score = 0;
+        APP.currentView = "start";
         renderView();
         handleStart();
     })
