@@ -12,7 +12,7 @@ Progress in the app is tracked inside of the data array and when the user is fin
 
 ## Built With
 
-* [HTML](https://html.com/)
+* [HTML 5](https://html.com/)
 * [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
 * [JAVASCRIPT](https://www.javascript.com/)
 * [JQUERY](https://jquery.com/)
